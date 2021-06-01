@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'portfolio-delmo';
+  theme = 'dark';
+
+  changeTheme(): void {
+    this.theme === 'dark' ? this.theme = 'light' : this.theme = 'dark';
+  }
 }

@@ -9,23 +9,123 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$portfolio-delmo-primary: mat-palette($mat-indigo);
-$portfolio-delmo-accent: mat-palette($mat-pink, A200, A100, A400);
+// Available color palettes: https://material.io/design/color/
+$light-delmo-primary: mat-palette($mat-indigo);
+$light-delmo-accent: mat-palette($mat-pink, A200, A100, A400);
+// $light-delmo-warn: mat-palette($mat-red);
 
-// The warn palette is optional (defaults to red).
-$portfolio-delmo-warn: mat-palette($mat-red);
+$mat-light-theme-background: (
+  status-bar: map_get($mat-blue-gray, 300),
+  app-bar:    map_get($mat-blue-gray, 50),
+  background: map_get($mat-blue-gray, 50),
+  hover:      rgba(black, 0.04),
+  card:       white,
+  dialog:     white,
+  disabled-button: rgba(black, 0.12),
+  raised-button: white,
+  focused-button: $dark-focused,
+  selected-button: map_get($mat-blue-gray, 300),
+  selected-disabled-button: map_get($mat-blue-gray, 400),
+  disabled-button-toggle: map_get($mat-blue-gray, 200),
+  unselected-chip: map_get($mat-blue-gray, 300),
+  disabled-list-option: map_get($mat-blue-gray, 200),
+  tooltip: map_get($mat-blue-gray, 700),
+);
+// Foreground palette for light themes.
+$mat-light-theme-foreground: (
+  base:              black,
+  divider:           $dark-dividers,
+  dividers:          $dark-dividers,
+  disabled:          $dark-disabled-text,
+  disabled-button:   rgba(black, 0.26),
+  disabled-text:     $dark-disabled-text,
+  elevation:         black,
+  hint-text:         $dark-disabled-text,
+  secondary-text:    $dark-secondary-text,
+  icon:              rgba(black, 0.54),
+  icons:             rgba(black, 0.54),
+  text:              rgba(black, 0.87),
+  slider-min:        rgba(black, 0.87),
+  slider-off:        rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+);
 
-// Create the theme object (a Sass map containing all of the palettes).
-$portfolio-delmo-theme: mat-light-theme($portfolio-delmo-primary, $portfolio-delmo-accent, $portfolio-delmo-warn);
+@function create-light-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $mat-light-theme-foreground,
+    background: $mat-light-theme-background,
+  );
+}
+
+$light-delmo-theme: create-light-theme($light-delmo-primary, $light-delmo-accent);
+
+$dark-delmo-primary: mat-palette($mat-grey, 800);
+$dark-delmo-accent: mat-palette($mat-pink, A200, A100, A400);
+// $dark-delmo-warn: mat-palette($mat-red);
+
+// Background palette for dark themes.
+$mat-dark-theme-background: (
+  status-bar: black,
+  app-bar:    map_get($mat-blue-grey, 900),
+  background: map_get($mat-blue-grey, 900),
+  hover:      rgba(white, 0.04),
+  card:       map_get($mat-blue-grey, 800),
+  dialog:     map_get($mat-blue-grey, 800),
+  disabled-button: rgba(white, 0.12),
+  raised-button: map-get($mat-blue-grey, 800),
+  focused-button: $light-focused,
+  selected-button: map_get($mat-blue-grey, 900),
+  selected-disabled-button: map_get($mat-blue-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map_get($mat-blue-grey, 700),
+  disabled-list-option: black,
+  tooltip: map_get($mat-blue-grey, 700),
+);
+// Foreground palette for dark themes.
+$mat-dark-theme-foreground: (
+  base:              white,
+  divider:           $light-dividers,
+  dividers:          $light-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     $light-disabled-text,
+  elevation:         black,
+  hint-text:         $light-disabled-text,
+  secondary-text:    $light-secondary-text,
+  icon:              white,
+  icons:             white,
+  text:              white,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+@function create-dark-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+    @return (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+      is-dark: true,
+      foreground: $mat-dark-theme-foreground,
+      background: $mat-dark-theme-background,
+    );
+  }
+
+$dark-delmo-theme: create-dark-theme($dark-delmo-primary, $dark-delmo-accent);
+// $dark-delmo-theme: mat-dark-theme($dark-delmo-primary, $dark-delmo-accent, $dark-delmo-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($portfolio-delmo-theme);
+@include angular-material-theme($dark-delmo-theme);
 
+.light-theme {
+    @include angular-material-theme($light-delmo-theme);
+}
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
