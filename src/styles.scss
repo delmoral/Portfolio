@@ -63,9 +63,9 @@ $mat-light-theme-foreground: (
 
 $light-delmo-theme: create-light-theme($light-delmo-primary, $light-delmo-accent);
 
-$dark-delmo-primary: mat-palette($mat-grey, 800);
-$dark-delmo-accent: mat-palette($mat-pink, A200, A100, A400);
-// $dark-delmo-warn: mat-palette($mat-red);
+$dark-delmo-primary: mat-palette($mat-indigo, 400);
+$dark-delmo-accent: mat-palette($mat-yellow, 700);
+$dark-delmo-warn: mat-palette($mat-red, 200);
 
 // Background palette for dark themes.
 $mat-dark-theme-background: (
@@ -115,7 +115,7 @@ $mat-dark-theme-foreground: (
     );
   }
 
-$dark-delmo-theme: create-dark-theme($dark-delmo-primary, $dark-delmo-accent);
+$dark-delmo-theme: create-dark-theme($dark-delmo-primary, $dark-delmo-accent, $dark-delmo-warn);
 // $dark-delmo-theme: mat-dark-theme($dark-delmo-primary, $dark-delmo-accent, $dark-delmo-warn);
 
 // Include theme styles for core and each component used in your app.

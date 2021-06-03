@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'portfolio-delmo';
   theme = 'dark';
+  checked = false;
+
+  // https://techclub.tajamar.es/internationalization-i18n-angular/
 
   changeTheme(): void {
     this.theme === 'dark' ? this.theme = 'light' : this.theme = 'dark';

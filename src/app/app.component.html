@@ -1,10 +1,10 @@
 <div class="{{theme}}-theme">
   <mat-card class="root">
     
-    <mat-toolbar >
-      <a class="button" routerLink="/home">home</a>
+    <mat-toolbar style="display: flex; justify-content: space-around;">
+      <!-- <a class="button" routerLink="/home">home</a> -->
     
-      <button mat-raised-button color="primary" (click)="changeTheme()">
+      <!-- <button mat-raised-button color="primary" (click)="changeTheme()">
         Primary
       </button>
       <button mat-raised-button color="accent">
@@ -12,10 +12,14 @@
       </button>
       <button mat-raised-button color="warn">
         Warning
-      </button>
+      </button> -->
+      <mat-slide-toggle [checked]="checked" (change)="changeTheme()">
+        Cambiar tema
+      </mat-slide-toggle>
     </mat-toolbar>
   
     <router-outlet ></router-outlet>
 
   </mat-card>
+  
 </div>
