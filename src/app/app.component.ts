@@ -15,6 +15,7 @@ export class AppComponent {
   private idiomas: Array<string>;
 
   // https://techclub.tajamar.es/internationalization-i18n-angular/
+  // https://github.com/ngx-translate/core
   constructor(public translate: TranslateService) {
     this.idiomas = ['es', 'en'];
     translate.addLangs(this.idiomas);

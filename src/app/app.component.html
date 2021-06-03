@@ -1,18 +1,24 @@
 <div class="{{theme}}-theme">
   <mat-card class="root">
-    <mat-toolbar style="display: flex; justify-content: space-around;">
-      
+    <mat-toolbar style="display: flex; justify-content: space-between;">
+      <div>
+        {{'Navbar.title' | translate }}
+      </div>
+      <div style="justify-content: end;">
+        <button *ngIf="!checkLenguaje" mat-raised-button color="primary" (click)="changeLenguaje()">
+          {{'Navbar.english' | translate }}
+        </button>
+        <button *ngIf="checkLenguaje" mat-raised-button color="primary" (click)="changeLenguaje()">
+          {{'Navbar.spanish' | translate }}
+        </button>
+        <mat-slide-toggle (change)="changeTheme()">
+          {{'Navbar.changeTheme' | translate }}
+        </mat-slide-toggle>
 
-      <mat-slide-toggle [checked]="checkLenguaje" (change)="changeLenguaje()">
-        {{'Navbar.changeLenguaje' | translate }}
-      </mat-slide-toggle>
-      <mat-slide-toggle [checked]="checked" (change)="changeTheme()">
-        {{'Navbar.changeTheme' | translate }}
-      </mat-slide-toggle>
+      </div>
     </mat-toolbar>
 
     <router-outlet></router-outlet>
 
   </mat-card>
-
 </div>

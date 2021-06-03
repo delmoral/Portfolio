@@ -1,7 +1,15 @@
 {
     "Navbar": {
         "title": "titulo",
-        "changeLenguaje": "Cambiar Idioma",
-        "changeTheme": "Cambiar tema"
+        "changeTheme": "Cambiar tema",
+        "changeLanguaje": "Elegir idioma",
+        "choose": "elija uno",
+        "spanish": "Castellano",
+        "english": "Inglés"
+    },
+    "Button": {
+        "accept": "Accept",
+        "cancel": "Cancel",
+        "save": "Save"
     }
 }

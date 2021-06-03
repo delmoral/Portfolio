@@ -20,6 +20,8 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
 
     MatButtonModule,
     MatCardModule,
@@ -42,6 +45,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatToolbarModule,
     MatExpansionModule,
     MatSlideToggleModule,
+    MatSelectModule,
 
     TranslateModule.forRoot({
       loader: {
