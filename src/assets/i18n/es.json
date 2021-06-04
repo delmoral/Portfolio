@@ -7,6 +7,10 @@
         "spanish": "Castellano",
         "english": "Inglés"
     },
+    "Nav":{
+        "home": "Inicio",
+        "piano": "Piano"
+    },
     "Button": {
         "accept": "Accept",
         "cancel": "Cancel",

@@ -1,14 +1,23 @@
-<div class="{{theme}}-theme">
+<div class="{{theme}}-theme" matRipple [matRippleCentered]="false"
+  [matRippleUnbounded]="true" [matRippleRadius]="16" [matRippleColor]="'#fbcd00'">
   <mat-card class="root">
     <mat-toolbar style="display: flex; justify-content: space-between;">
       <div>
         {{'Navbar.title' | translate }}
       </div>
-      <div style="justify-content: end;">
-        <button *ngIf="!checkLenguaje" mat-raised-button color="primary" (click)="changeLenguaje()">
+      <div>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle value="bold" (click)="navigateTo('/home')">{{'Nav.home' | translate }}</mat-button-toggle>
+          <mat-button-toggle value="italic" (click)="navigateTo('/piano')">{{'Nav.piano' | translate }}
+          </mat-button-toggle>
+          <!-- <mat-button-toggle value="underline">Underline</mat-button-toggle> -->
+        </mat-button-toggle-group>
+      </div>
+      <div [style]="{'margin':'10px'}">
+        <button class="m-1" *ngIf="!checkLenguaje" mat-raised-button color="primary" (click)="changeLenguaje()">
           {{'Navbar.english' | translate }}
         </button>
-        <button *ngIf="checkLenguaje" mat-raised-button color="primary" (click)="changeLenguaje()">
+        <button class="m-1" *ngIf="checkLenguaje" mat-raised-button color="primary" (click)="changeLenguaje()">
           {{'Navbar.spanish' | translate }}
         </button>
         <mat-slide-toggle (change)="changeTheme()">
