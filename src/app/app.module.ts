@@ -27,6 +27,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatButtonToggleModule,
     MatIconModule,
     MatTabsModule,
+    MatMenuModule,
 
     TranslateModule.forRoot({
       loader: {

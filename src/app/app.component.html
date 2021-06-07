@@ -1,9 +1,9 @@
-<div class="{{theme}}-theme" matRipple [matRippleCentered]="false"
-  [matRippleUnbounded]="true" [matRippleRadius]="16" [matRippleColor]="'#fbcd00'" (click)="playClickSong()">
+<div class="{{theme}}-theme" matRipple [matRippleCentered]="false" [matRippleUnbounded]="true" [matRippleRadius]="10"
+  [matRippleColor]="'#FFEB3B'" (click)="playClickSong()">
   <mat-card class="root">
     <mat-toolbar style="display: flex; justify-content: space-between;">
       <div>
-        {{'Navbar.title' | translate }}
+        <!-- {{'Navbar.title' | translate }} -->
       </div>
       <div>
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
@@ -12,17 +12,30 @@
           <!-- <mat-button-toggle value="underline">Underline</mat-button-toggle> -->
         </mat-button-toggle-group>
       </div>
-      <div [style]="{'margin':'10px'}">
-        <button class="m-1" *ngIf="!checkLenguaje" mat-raised-button color="primary" (click)="changeLenguaje()">
-          {{'Navbar.english' | translate }}
-        </button>
-        <button class="m-1" *ngIf="checkLenguaje" mat-raised-button color="primary" (click)="changeLenguaje()">
-          {{'Navbar.spanish' | translate }}
-        </button>
-        <mat-slide-toggle (change)="changeTheme()">
-          {{'Navbar.changeTheme' | translate }}
-        </mat-slide-toggle>
 
+      <div [style]="{'margin':'10px', 'display':'flex', 'align-items':'center'}">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>settings</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" (click)="playClickSong()">
+          <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 6px;">
+            <button *ngIf="songEnabled" mat-mini-fab color="primary" (click)="toogleClickSong()">
+              <mat-icon>volume_up</mat-icon>
+            </button>
+            <button *ngIf="!songEnabled" mat-mini-fab color="accent" (click)="toogleClickSong()">
+              <mat-icon>volume_off</mat-icon>
+            </button>
+            <button class="m-1" *ngIf="!checkLenguaje" mat-raised-button color="primary" (click)="changeLenguaje()">
+              {{'Navbar.english' | translate }}
+            </button>
+            <button class="m-1" *ngIf="checkLenguaje" mat-raised-button color="accent" (click)="changeLenguaje()">
+              {{'Navbar.spanish' | translate }}
+            </button>
+            <mat-slide-toggle (change)="changeTheme()">
+              {{'Navbar.changeTheme' | translate }}
+            </mat-slide-toggle>
+          </div>
+        </mat-menu>
       </div>
     </mat-toolbar>
 
