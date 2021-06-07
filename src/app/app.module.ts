@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PianoComponent } from './components/piano/piano.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -25,7 +26,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     MatSelectModule,
     MatButtonToggleModule,
     MatIconModule,
+    MatTabsModule,
 
     TranslateModule.forRoot({
       loader: {

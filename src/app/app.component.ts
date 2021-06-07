@@ -31,25 +31,25 @@ export class AppComponent {
     this.synth = new Tone.PolySynth().toDestination();
     // Air bach
     this.song = [
-      [new ToneNote("D3", "8n")],
-      [new ToneNote("D4", "8n"), new ToneNote("D5", "4n")],
-      [new ToneNote("Db4", "8n")],
-      [new ToneNote("Db3", "8n")],
-
-      [new ToneNote("B2", "8n")],
-      [new ToneNote("B3", "8n"), new ToneNote("B4", "4n")],
-      [new ToneNote("A3", "8n")],
-      [new ToneNote("A2", "8n")],
-
-      [new ToneNote("G2", "8n")],
-      [new ToneNote("G3", "8n"), new ToneNote("G4", "4n")],
-      [new ToneNote("Ab3", "8n")],
-      [new ToneNote("Ab2", "8n")],
-
-      [new ToneNote("A2", "8n")],
-      [new ToneNote("A3", "8n"), new ToneNote("A4", "4n")],
-      [new ToneNote("G3", "8n")],
-      [new ToneNote("G2", "8n")],
+      // jazz
+      [new ToneNote("D2", "8n"), new ToneNote("A2", "8n", 0.11), new ToneNote("D3", "8n", 0.47), new ToneNote("F3", "8n", 0.47),
+      new ToneNote("A3", "8n", 0.47), new ToneNote("C4", "8n", 0.47), new ToneNote("E4", "8n", 0.47)],
+      [new ToneNote("G1", "8n"), new ToneNote("D2", "8n", 0.11), new ToneNote("G2", "8n", 0.47), new ToneNote("B2", "8n", 0.47),
+      new ToneNote("D3", "8n", 0.47), new ToneNote("F3", "8n", 0.47), new ToneNote("A3", "8n", 0.47)],
+      [new ToneNote("C2", "8n"), new ToneNote("G3", "8n", 0.11), new ToneNote("C3", "8n", 0.47), new ToneNote("E3", "8n", 0.47),
+      new ToneNote("G3", "8n", 0.47), new ToneNote("B3", "8n", 0.47), new ToneNote("E4", "8n", 0.47)],
+      [new ToneNote("A1", "8n"), new ToneNote("E2", "8n", 0.11), new ToneNote("A2", "8n", 0.47), new ToneNote("C3", "8n", 0.47),
+      new ToneNote("E3", "8n", 0.47), new ToneNote("G3", "8n", 0.47), new ToneNote("B3", "8n", 0.47)],
+      
+      
+      [new ToneNote("D2", "8n"), new ToneNote("A2", "8n", 0.11), new ToneNote("D3", "8n", 0.47), new ToneNote("F3", "8n", 0.47),
+      new ToneNote("A3", "8n", 0.47), new ToneNote("C4", "8n", 0.47), new ToneNote("E4", "8n", 0.47)],
+      [new ToneNote("G1", "8n"), new ToneNote("D2", "8n", 0.11), new ToneNote("G2", "8n", 0.47), new ToneNote("B2", "8n", 0.47),
+      new ToneNote("D3", "8n", 0.47), new ToneNote("F3", "8n", 0.47), new ToneNote("A3", "8n", 0.47)],
+      [new ToneNote("C2", "8n"), new ToneNote("G3", "8n", 0.11), new ToneNote("C3", "8n", 0.47), new ToneNote("E3", "8n", 0.47),
+      new ToneNote("G3", "8n", 0.47), new ToneNote("C4", "8n", 0.47), new ToneNote("E4", "8n", 0.47)],
+      [new ToneNote("C2", "8n"), new ToneNote("G3", "8n", 0.11), new ToneNote("B3", "8n", 0.47), new ToneNote("E3", "8n", 0.47),
+      new ToneNote("G3", "8n", 0.47), new ToneNote("B3", "8n", 0.47), new ToneNote("E4", "8n", 0.47)],
     ]
   }
 

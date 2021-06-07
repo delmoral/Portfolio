@@ -10,8 +10,8 @@
 @include mat-core();
 
 // Available color palettes: https://material.io/design/color/
-$light-delmo-primary: mat-palette($mat-indigo);
-$light-delmo-accent: mat-palette($mat-pink, A200, A100, A400);
+$light-delmo-primary: mat-palette($mat-teal, 600);
+$light-delmo-accent: mat-palette($mat-deep-orange, 700);
 // $light-delmo-warn: mat-palette($mat-red);
 
 $mat-light-theme-background: (
@@ -63,9 +63,9 @@ $mat-light-theme-foreground: (
 
 $light-delmo-theme: create-light-theme($light-delmo-primary, $light-delmo-accent);
 
-$dark-delmo-primary: mat-palette($mat-indigo, 400);
-$dark-delmo-accent: mat-palette($mat-yellow, 700);
-$dark-delmo-warn: mat-palette($mat-red, 200);
+$dark-delmo-primary: mat-palette($mat-teal, 200);
+$dark-delmo-accent: mat-palette($mat-deep-orange, 400);
+$dark-delmo-warn: mat-palette($mat-red, 400);
 
 // Background palette for dark themes.
 $mat-dark-theme-background: (
