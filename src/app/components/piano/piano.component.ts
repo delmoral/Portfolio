@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as Tone from 'tone';
 
 @Component({
   selector: 'app-piano',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PianoComponent implements OnInit {
 
-  constructor() { }
+  synth;
 
-  ngOnInit(): void {
+  rounds = 3;
+
+  constructor() {
+    this.synth = new Tone.PolySynth().toDestination();
   }
 
+  ngOnInit(): void {
+
+  }
+
+  startRound(): void {
+
+  }
+
+  itemHover(): void {
+
+  }
 }

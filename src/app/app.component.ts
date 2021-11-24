@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import * as songConstants from './utils/songConstants';
+import * as CONS from './utils/constants';
 
 import * as Tone from 'tone'
-import { ToneNote } from './models/tone-note.model';
 
 @Component({
   selector: 'app-root',
@@ -11,61 +12,35 @@ import { ToneNote } from './models/tone-note.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'portfolio-delmo';
-  theme = 'dark';
+  theme = CONS.THEME_DARK;
   checkLenguaje = false;
 
   synth;
   song = [];
   songPosition = 0;
   songMinLenght = 2;
-  songEnabled = true;
+  songEnabled = false;
 
   private idiomas: Array<string>;
 
-  // https://techclub.tajamar.es/internationalization-i18n-angular/
-  // https://github.com/ngx-translate/core
   constructor(public translate: TranslateService, public router: Router) {
-    this.idiomas = ['es', 'en'];
+    this.idiomas = [CONS.LANG_ES, CONS.LANG_EN];
     translate.addLangs(this.idiomas);
-    translate.setDefaultLang('es');
+    translate.setDefaultLang(CONS.LANG_EN);
 
     this.synth = new Tone.PolySynth().toDestination();
-    // Air bach
-    this.song = [
-      // jazz
-      [new ToneNote("D2", "8n"), new ToneNote("A2", "8n", 0.11), new ToneNote("D3", "8n", 0.47), new ToneNote("F3", "8n", 0.47),
-      new ToneNote("A3", "8n", 0.47), new ToneNote("C4", "8n", 0.47), new ToneNote("E4", "8n", 0.47)],
-      [new ToneNote("G1", "8n"), new ToneNote("D2", "8n", 0.11), new ToneNote("G2", "8n", 0.47), new ToneNote("B2", "8n", 0.47),
-      new ToneNote("D3", "8n", 0.47), new ToneNote("F3", "8n", 0.47), new ToneNote("A3", "8n", 0.47)],
-      [new ToneNote("C2", "8n"), new ToneNote("G3", "8n", 0.11), new ToneNote("C3", "8n", 0.47), new ToneNote("E3", "8n", 0.47),
-      new ToneNote("G3", "8n", 0.47), new ToneNote("B3", "8n", 0.47), new ToneNote("E4", "8n", 0.47)],
-      [new ToneNote("A1", "8n"), new ToneNote("E2", "8n", 0.11), new ToneNote("A2", "8n", 0.47), new ToneNote("C3", "8n", 0.47),
-      new ToneNote("E3", "8n", 0.47), new ToneNote("G3", "8n", 0.47), new ToneNote("B3", "8n", 0.47)],
-
-      [new ToneNote("D2", "8n"), new ToneNote("A2", "8n", 0.11), new ToneNote("D3", "8n", 0.47), new ToneNote("F3", "8n", 0.47),
-      new ToneNote("A3", "8n", 0.47), new ToneNote("C4", "8n", 0.47), new ToneNote("E4", "8n", 0.47)],
-      [new ToneNote("G1", "8n"), new ToneNote("D2", "8n", 0.11), new ToneNote("G2", "8n", 0.47), new ToneNote("B2", "8n", 0.47),
-      new ToneNote("D3", "8n", 0.47), new ToneNote("F3", "8n", 0.47), new ToneNote("A3", "8n", 0.47)],
-      [new ToneNote("C2", "8n"), new ToneNote("G3", "8n", 0.11), new ToneNote("C3", "8n", 0.47), new ToneNote("E3", "8n", 0.47),
-      new ToneNote("G3", "8n", 0.47), new ToneNote("C4", "8n", 0.47), new ToneNote("E4", "8n", 0.47)],
-      [new ToneNote("C2", "8n"), new ToneNote("G3", "8n", 0.11), new ToneNote("B3", "8n", 0.47), new ToneNote("E3", "8n", 0.47),
-      new ToneNote("G3", "8n", 0.47), new ToneNote("B3", "8n", 0.47), new ToneNote("E4", "8n", 0.47)],
-    ]
-  }
-
-  changeSong(songName: string): void {
-    //
+    this.synth.volume.value = -15;
+    this.song = songConstants.SONG_PRELUDE;
   }
 
   changeTheme(): void {
-    this.theme === 'dark' ? this.theme = 'light' : this.theme = 'dark';
+    this.theme === CONS.THEME_DARK ? this.theme = CONS.THEME_LIGHT : this.theme = CONS.THEME_DARK;
   }
 
   changeLenguaje(): void {
     this.checkLenguaje = !this.checkLenguaje;
-    if (this.checkLenguaje) this.translate.use('en');
-    else this.translate.use('es');
+    if (this.checkLenguaje) this.translate.use(CONS.LANG_EN);
+    else this.translate.use(CONS.LANG_ES);
   }
 
   navigateTo(url: string): void {
@@ -73,10 +48,10 @@ export class AppComponent {
   }
 
   playClickSong(): void {
-    if(this.songEnabled){
+    if (this.songEnabled) {
       let now = Tone.now()
       let note = this.song[this.songPosition];
-      console.log("Sound- ", this.song.length, this.songPosition, note, now, typeof note['release']);
+      // console.log("Sound- ", this.song.length, this.songPosition, note, now, typeof note['release']);
       note.forEach(n => {
         this.synth.triggerAttackRelease(n['note'], n['attack'], now + (n['release'] ? n['release'] : 0));
       })
@@ -85,11 +60,7 @@ export class AppComponent {
     }
   }
 
-  toogleClickSong(): void  {
+  toogleClickSong(): void {
     this.songEnabled = !this.songEnabled;
   }
-
-  // https://tonejs.github.io/
-  // https://howlerjs.com/
-  // https://greensock.com/
 }

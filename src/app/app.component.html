@@ -9,7 +9,6 @@
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
           <mat-button-toggle (click)="navigateTo('/home')">{{'Nav.home' | translate }}</mat-button-toggle>
           <mat-button-toggle (click)="navigateTo('/piano')">{{'Nav.piano' | translate }}</mat-button-toggle>
-          <!-- <mat-button-toggle value="underline">Underline</mat-button-toggle> -->
         </mat-button-toggle-group>
       </div>
 
@@ -18,17 +17,18 @@
           <mat-icon>settings</mat-icon>
         </button>
         <mat-menu #menu="matMenu" (click)="playClickSong()">
-          <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 6px;">
+          <div
+            style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 6px;">
             <button *ngIf="songEnabled" mat-mini-fab color="primary" (click)="toogleClickSong()">
               <mat-icon>volume_up</mat-icon>
             </button>
             <button *ngIf="!songEnabled" mat-mini-fab color="accent" (click)="toogleClickSong()">
               <mat-icon>volume_off</mat-icon>
             </button>
-            <button class="m-1" *ngIf="!checkLenguaje" mat-raised-button color="primary" (click)="changeLenguaje()">
+            <button class="m-1" *ngIf="checkLenguaje" mat-raised-button color="primary" (click)="changeLenguaje()">
               {{'Navbar.english' | translate }}
             </button>
-            <button class="m-1" *ngIf="checkLenguaje" mat-raised-button color="accent" (click)="changeLenguaje()">
+            <button class="m-1" *ngIf="!checkLenguaje" mat-raised-button color="accent" (click)="changeLenguaje()">
               {{'Navbar.spanish' | translate }}
             </button>
             <mat-slide-toggle (change)="changeTheme()">
